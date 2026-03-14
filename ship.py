@@ -10,6 +10,7 @@ class Ship():
         # Start each new ship at the bottom center of the screen.
         self.rect.centerx = self.screen_rect.centerx
         self.rect.bottom = self.screen_rect.bottom
+        self.centerx = float(self.rect.centerx)
         self.moving_right = False
         self.moving_left = False
     def blitme(self):
@@ -17,6 +18,7 @@ class Ship():
         self.screen.blit(self.image, self.rect)
     def update(self):
         if self.moving_right:
-            self.rect.centerx += 0.5
+            self.centerx += 0.5
         if self.moving_left:
-            self.rect.centerx -= 0.5
+            self.centerx -= 0.5
+        self.rect.centerx = self.centerx
